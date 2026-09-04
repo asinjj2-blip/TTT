@@ -14,7 +14,7 @@
       <div>
         <p class="eyebrow">PUBLIC PROFILE LOOKUP</p>
         <h1>TikTok Account Lookup</h1>
-        <p class="sub">Enter a public TikTok username to load profile details and any explicit account-region signal TikTok exposes.</p>
+        <p class="sub">Enter a public TikTok username to load profile details and any public country/region signal available from the data source.</p>
       </div>
     </section>
 
@@ -24,11 +24,11 @@
         <div class="input-wrap"><span>@</span><input id="username" name="username" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Haidyqool" maxlength="24"></div>
         <button id="submitBtn" type="submit"><span class="search-icon">⌕</span><span id="buttonText">Fetch Data</span></button>
       </div>
-      <p class="privacy">Public profile data only. No live GPS, IP address, or private location data.</p>
+      <p class="privacy">Public profile data only. No live GPS, IP address, physical address, or private location data.</p>
     </form>
 
     <div id="errorBox" class="error hidden" role="alert"></div>
-    <div id="loadingBox" class="loading hidden"><div class="spinner"></div><div><strong>Checking TikTok…</strong><span>Reading the public profile page.</span></div></div>
+    <div id="loadingBox" class="loading hidden"><div class="spinner"></div><div><strong>Checking TikTok…</strong><span>Reading public profile sources.</span></div></div>
 
     <section id="result" class="result hidden" aria-live="polite">
       <div class="profile-top">
@@ -54,9 +54,9 @@
       <div class="region-card">
         <div class="pin">◎</div>
         <div>
-          <span class="section-label">ACCOUNT COUNTRY / REGION</span>
+          <span class="section-label">COUNTRY / REGION SIGNAL</span>
           <h3 id="region">Not publicly available</h3>
-          <p id="regionNote">No explicit account-region field was found in the public profile data.</p>
+          <p id="regionNote">No public region signal was found for this profile.</p>
         </div>
       </div>
 
@@ -69,7 +69,7 @@
         <div class="detail"><span>Username changed</span><strong id="usernameChanged">—</strong></div>
       </div>
 
-      <div class="source-note"><strong>What “region” means:</strong> an explicit public account/profile region signal when TikTok includes one. It is not the person’s current location.</div>
+      <div class="source-note"><strong>What “region” means:</strong> an explicit public account/profile region field when available, or a public content-region signal from recent posts when clearly labeled. It is never a live or exact location.</div>
     </section>
   </main>
   <script src="/app.js" defer></script>
