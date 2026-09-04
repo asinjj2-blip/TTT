@@ -75,8 +75,8 @@ function renderProfile(p) {
   const name = countryName(p.regionCode);
   el('region').textContent = name ? `${flagEmoji(p.regionCode)} ${name} (${p.regionCode})` : 'Not publicly available';
   el('regionNote').textContent = p.regionCode
-    ? `Explicit region field found in the public TikTok profile data (${p.regionSource || 'source field'}).`
-    : 'No explicit account-region field was found in the public profile data. TTT does not guess from bio, language, flags, or videos.';
+    ? (p.regionSource || 'Public region signal found.')
+    : 'No public region signal was found. TTT does not guess from bio, language, flags, or other indirect clues.';
   el('language').textContent = p.language || '—';
   el('userId').textContent = p.userId || '—';
   el('privacyStatus').textContent = p.privateAccount === null ? '—' : (p.privateAccount ? 'Private' : 'Public');
