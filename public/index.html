@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b12">
+  <title>TTT — TikTok Account Lookup</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="logo">TTT</div>
+      <div>
+        <p class="eyebrow">PUBLIC PROFILE LOOKUP</p>
+        <h1>TikTok Account Lookup</h1>
+        <p class="sub">Enter a public TikTok username to load profile details and any explicit account-region signal TikTok exposes.</p>
+      </div>
+    </section>
+
+    <form id="lookupForm" class="search-card" novalidate>
+      <label for="username">TikTok username</label>
+      <div class="search-row">
+        <div class="input-wrap"><span>@</span><input id="username" name="username" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Haidyqool" maxlength="24"></div>
+        <button id="submitBtn" type="submit"><span class="search-icon">⌕</span><span id="buttonText">Fetch Data</span></button>
+      </div>
+      <p class="privacy">Public profile data only. No live GPS, IP address, or private location data.</p>
+    </form>
+
+    <div id="errorBox" class="error hidden" role="alert"></div>
+    <div id="loadingBox" class="loading hidden"><div class="spinner"></div><div><strong>Checking TikTok…</strong><span>Reading the public profile page.</span></div></div>
+
+    <section id="result" class="result hidden" aria-live="polite">
+      <div class="profile-top">
+        <div id="avatarFallback" class="avatar fallback">T</div>
+        <img id="avatar" class="avatar hidden" alt="TikTok profile avatar">
+        <div class="identity">
+          <div class="name-row"><h2 id="displayName">—</h2><span id="verified" class="verified hidden" title="Verified">✓</span></div>
+          <p id="handle">@—</p>
+          <p id="bio" class="bio"></p>
+        </div>
+        <a id="openProfile" class="open-btn" target="_blank" rel="noreferrer" aria-label="Open TikTok profile">↗</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span>Followers</span><strong id="followers">—</strong></div>
+        <div class="stat"><span>Following</span><strong id="following">—</strong></div>
+        <div class="stat"><span>Likes</span><strong id="likes">—</strong></div>
+        <div class="stat"><span>Videos</span><strong id="videos">—</strong></div>
+        <div class="stat"><span>Friends</span><strong id="friends">—</strong></div>
+        <div class="stat"><span>Diggs</span><strong id="diggs">—</strong></div>
+      </div>
+
+      <div class="region-card">
+        <div class="pin">◎</div>
+        <div>
+          <span class="section-label">ACCOUNT COUNTRY / REGION</span>
+          <h3 id="region">Not publicly available</h3>
+          <p id="regionNote">No explicit account-region field was found in the public profile data.</p>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="detail"><span>Language</span><strong id="language">—</strong></div>
+        <div class="detail"><span>User ID</span><strong id="userId">—</strong></div>
+        <div class="detail"><span>Account</span><strong id="privacyStatus">—</strong></div>
+        <div class="detail"><span>Created</span><strong id="created">—</strong></div>
+        <div class="detail"><span>Nickname changed</span><strong id="nicknameChanged">—</strong></div>
+        <div class="detail"><span>Username changed</span><strong id="usernameChanged">—</strong></div>
+      </div>
+
+      <div class="source-note"><strong>What “region” means:</strong> an explicit public account/profile region signal when TikTok includes one. It is not the person’s current location.</div>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
