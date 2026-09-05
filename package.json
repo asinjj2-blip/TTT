@@ -1,13 +1,14 @@
 {
   "name": "ttt-tiktok-lookup",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "Public TikTok profile lookup with explicit account-region signals only.",
+  "description": "Standalone public TikTok profile lookup client and web app with explicit region signals only.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "check": "node --check server.js && node --check public/app.js"
+    "check": "node --check server.js && node --check lib/tiktok-public-client.js && node --check public/app.js",
+    "test": "node --test tests/*.test.js"
   },
   "engines": {
     "node": ">=20"
