@@ -1,0 +1,30 @@
+name: TTT Python worker tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - '.github/workflows/worker-test.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'worker/**'
+
+jobs:
+  test-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: worker/requirements.txt
+      - name: Install dependencies
+        run: pip install -r worker/requirements.txt
+      - name: Run worker unit tests
+        working-directory: worker
+        run: pytest -q
